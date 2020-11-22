@@ -1,0 +1,47 @@
+
+@mixin placeholder {
+  &::-webkit-input-placeholder { @content; }
+  &:-moz-placeholder           { @content; }
+  &::-moz-placeholder          { @content; }
+  &:-ms-input-placeholder      { @content; }
+};
+
+@mixin mobile-xs {
+  @media screen and (max-width: 576px) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media screen and (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: 991px) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media screen and (max-width: 1199px) {
+    @content;
+  }
+}
+
+@mixin btn($not-active: true) {
+  @if $not-active {
+    border: 1px solid #D6E8F0;
+    transition: background-color .3s ease-in-out, border .3s ease-in-out, color .3s ease-in-out;
+    &:hover,
+    &:active {
+      border: 1px solid #22CBFF;
+      background-color: #22CBFF;
+      color: #fff;
+    }
+  } @else {
+    background-color: #22CBFF;
+    color: #fff;
+  }
+}
+
